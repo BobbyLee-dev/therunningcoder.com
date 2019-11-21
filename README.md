@@ -3,16 +3,12 @@
   <a href="https://www.therunningcoder.com">therunningcoder.com</a>
 </h1>
 
-<p align="center">
-    ##Built with the Gatsby Default starter
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-</p>
-
-
-
-
 ## 🚀 Personal Blog and Portfolio for Bobby Lee.
 
+<p align="center">
+    <div>Built with the Gatsby Default starter</div>
+    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+</p>
 
 ## 🧐 What's inside?
 
