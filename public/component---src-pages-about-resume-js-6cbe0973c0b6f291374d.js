@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{e4uB:function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),l=a.n(n),o=a("Wbzz"),r=a("Bl7J"),u=a("vrFN");t.default=function(){return l.a.createElement(r.a,null,l.a.createElement(u.a,{title:"Resume"}),l.a.createElement("h1",null,"Hi from the Resume Page"),l.a.createElement(o.Link,{to:"/"},"Go back to the homepage"))}}}]);
+//# sourceMappingURL=component---src-pages-about-resume-js-6cbe0973c0b6f291374d.js.map
