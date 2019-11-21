@@ -1,0 +1,1 @@
+{"data":{"wpgraphql":{"posts":{"nodes":[{"uri":"test","title":"test","shortLongPost":{"longVersion":"<p>test long version</p>\n","shortVersion":"<p>test short version</p>\n","customExcerpt":"<p>testing custom excerpt</p>\n"}},{"uri":"hello-world","title":"Hello world!","shortLongPost":{"longVersion":null,"shortVersion":null,"customExcerpt":null}}]}}}}
