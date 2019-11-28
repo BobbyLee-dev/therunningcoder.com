@@ -22,8 +22,14 @@ const HeaderWrapper = styled.header`
   @media (min-width: 768px) {
     padding: 10px 20px;
   }
+  @media (min-width: 1400px) {
+    padding: 10px 40px;
+  }
+  @media (min-width: 2000px) {
+    padding: 10px 80px;
+  }
   h1 {
-    font-size: 24px;
+    font-size: 22px;
     margin: 0;
     @media (min-width: 768px) {
       font-size: 30px;
@@ -55,13 +61,15 @@ const Hamburger = styled.button`
 const Header = ({ siteTitle }) => {
   const [isNavOpen, setNavOpen] = useState(false);
   const navAnimation = useSpring({
-    transform: isNavOpen ? `translate3d(0,0,0)` : `translate3d(100%,0,0)`
+    transform: isNavOpen
+      ? `translate3d(0,0,0) scale(1)`
+      : `translate3d(100%,-80%,0) scale(0.2)`
   });
 
   return (
     <HeaderWrapper>
       <h1>
-        <Link to="/">{siteTitle}</Link>
+        <Link to="/">{`{ ${siteTitle} }`}</Link>
       </h1>
       <Hamburger onClick={() => setNavOpen(!isNavOpen)}>Menu</Hamburger>
       <MainMenu style={navAnimation} />
