@@ -164,11 +164,6 @@ const MainMenu = ({ style, themeColor }) => {
                     {item.label}
                   </Link>
                   {item.childItems.nodes.length > 0 && (
-                    // <SubMenuButton
-                    //   onClick={() => setSubMenuToggle(!isSubMenuToggled)}
-                    // >
-                    //   {'</>'}
-                    // </SubMenuButton>
                     <SubMenuButton
                       setSubMenuToggle={setSubMenuToggle}
                       isSubMenuToggled={isSubMenuToggled}
