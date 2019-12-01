@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import Burger from './hamburger';
-import SubMenuButton from './SubMenuButton';
+import SubMenuButton from './sub-menu-button';
 
 const mobileNavBreakPoint = `890px`;
 const mobileNavMaxBreakPoint = `889px`;
