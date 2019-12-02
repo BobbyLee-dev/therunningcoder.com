@@ -1,10 +1,20 @@
-import React from 'react'
+import React from 'react';
+// import Goo from '.././blob/blob';
 // import { useStaticQuery, graphql, Link } from 'gatsby'
+import styled from 'styled-components';
 
-const HomeIntro = props => (
-  <>
-    <pre>{JSON.stringify(props, null, 2)}</pre>
-  </>
-)
+const HomeIntroWrap = styled.section`
+  /* min-height: 100vh;
+  position: relative; */
+`;
 
-export default HomeIntro
+const HomeIntro = props => {
+  return (
+    <HomeIntroWrap>
+      {/* <Goo /> */}
+      <pre>{JSON.stringify(props, null, 2)}</pre>
+    </HomeIntroWrap>
+  );
+};
+
+export default HomeIntro;

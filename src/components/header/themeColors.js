@@ -109,6 +109,33 @@ const Theme = () => {
       highLightHover: {
         color: 'rgba(246, 123, 123, .7)'
       }
+    },
+    {
+      theme: {
+        name: 'Shades of Purple',
+        link: 'https://vscodethemes.com/e/ahmadawais.shades-of-purple'
+      },
+      background: {
+        backgroundColor: 'rgb(45, 43, 85)'
+      },
+      title: {
+        color: 'rgba(158, 255, 255, 1)'
+      },
+      titleHover: {
+        color: 'rgba(158, 255, 255, .7)'
+      },
+      pageLink: {
+        color: 'rgba(250, 208, 0, 1)'
+      },
+      pageLinkHover: {
+        color: 'rgba(250, 208, 0, .7)'
+      },
+      highLight: {
+        color: 'rgba(58, 217, 0, 1)'
+      },
+      highLightHover: {
+        color: 'rgba(58, 217, 0, .7)'
+      }
     }
   ];
   return themeColors[Math.floor(Math.random() * themeColors.length + 0)];

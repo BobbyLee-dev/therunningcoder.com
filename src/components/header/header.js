@@ -6,7 +6,6 @@ import MainMenu from './menu';
 import Theme from './themeColors';
 
 const HeaderWrapper = styled.header`
-  /* background: #122738; */
   margin-bottom: 1.45rem;
   display: flex;
   flex-direction: row;
@@ -41,17 +40,16 @@ const HeaderWrapper = styled.header`
   }
 `;
 
-const ThemeName = styled.a`
-  position: absolute;
-  top: 55px;
-  right: 20px;
-  font-size: 12px;
-  font-style: italic;
-`;
+// const ThemeName = styled.a`
+//   position: absolute;
+//   top: 55px;
+//   right: 20px;
+//   font-size: 12px;
+//   font-style: italic;
+// `;
 
 const Header = ({ siteTitle }) => {
   let randomTheme = Theme();
-  console.log(randomTheme);
 
   return (
     <>
@@ -62,14 +60,13 @@ const Header = ({ siteTitle }) => {
 
         <MainMenu themeColor={randomTheme} />
       </HeaderWrapper>
-      <ThemeName
+      {/* <ThemeName
         href={randomTheme.theme.link}
         target="_blank"
         rel="noopener noreferrer"
       >
-        {console.log(randomTheme.theme.name)}
         Nav Theme: {randomTheme.theme.name}
-      </ThemeName>
+      </ThemeName> */}
     </>
   );
 };
