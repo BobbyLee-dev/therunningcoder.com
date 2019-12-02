@@ -1,72 +1,76 @@
-import React, { useState } from 'react';
+// Moved to menu.js so that I could use animations ie - when on the home page and home is clicked on the mobile nav
+// animate the nav.
 
-import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
+// import React, { useState } from 'react';
 
-const mobileNavBreakPoint = `890px`;
+// import styled from 'styled-components';
+// import { useSpring, animated } from 'react-spring';
 
-const StyledBurger = styled.button`
-  top: 5%;
-  left: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
+// const mobileNavBreakPoint = `890px`;
 
-  &:focus {
-    outline: none;
-  }
-  @media (min-width: ${mobileNavBreakPoint}) {
-    display: none;
-  }
+// const StyledBurger = styled.button`
+//   top: 5%;
+//   left: 2rem;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+//   width: 2rem;
+//   height: 2rem;
+//   background: transparent;
+//   border: none;
+//   cursor: pointer;
+//   padding: 0;
+//   z-index: 10;
 
-  div {
-    width: 2rem;
-    height: 0.25rem;
-    background: #fff;
-    border-radius: 10px;
-    position: relative;
-    transform-origin: 1px;
-  }
-`;
+//   &:focus {
+//     outline: none;
+//   }
+//   @media (min-width: ${mobileNavBreakPoint}) {
+//     display: none;
+//   }
 
-const Burger = ({ isNavOpen, setNavOpen }) => {
-  const [isBurgerOpen, setBurgerOpen] = useState(false);
+//   div {
+//     width: 2rem;
+//     height: 0.25rem;
+//     background: #fff;
+//     border-radius: 10px;
+//     position: relative;
+//     transform-origin: 1px;
+//   }
+// `;
 
-  const topBun = useSpring({
-    transform: isBurgerOpen ? 'rotate(45deg)' : 'rotate(0deg)'
-  });
+// const Burger = ({ isNavOpen, setNavOpen }) => {
+//   const [isBurgerOpen, setBurgerOpen] = useState(false);
 
-  const meat = useSpring({
-    transform: isBurgerOpen ? 'translateX(-20px)' : 'translateX(0px)',
-    opacity: isBurgerOpen ? '0' : '1'
-  });
+//   const topBun = useSpring({
+//     transform: isBurgerOpen ? 'rotate(45deg)' : 'rotate(0deg)'
+//   });
 
-  const bottomBun = useSpring({
-    transform: isBurgerOpen ? 'rotate(-45deg)' : 'rotate(0deg)'
-  });
+//   const meat = useSpring({
+//     transform: isBurgerOpen ? 'translateX(-20px)' : 'translateX(0px)',
+//     opacity: isBurgerOpen ? '0' : '1'
+//   });
 
-  return (
-    <>
-      <StyledBurger
-        isBurgerOpen={isBurgerOpen}
-        onClick={() => {
-          setBurgerOpen(!isBurgerOpen);
-          setNavOpen(!isNavOpen);
-        }}
-      >
-        <animated.div style={topBun} />
-        <animated.div style={meat} />
-        <animated.div style={bottomBun} />
-      </StyledBurger>
-    </>
-  );
-};
+//   const bottomBun = useSpring({
+//     transform: isBurgerOpen ? 'rotate(-45deg)' : 'rotate(0deg)'
+//   });
 
-export default Burger;
+//   return (
+//     <>
+//       <StyledBurger
+//         isBurgerOpen={isBurgerOpen}
+//         setBurgerOpen={setBurgerOpen}
+//         onClick={() => {
+//           setBurgerOpen(!isBurgerOpen);
+//           setNavOpen(!isNavOpen);
+//         }}
+//       >
+//         <animated.div style={topBun} />
+//         <animated.div style={meat} />
+//         <animated.div style={bottomBun} />
+//       </StyledBurger>
+//     </>
+//   );
+// };
+
+// export default Burger;

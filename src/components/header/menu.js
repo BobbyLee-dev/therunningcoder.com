@@ -2,7 +2,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
-import Burger from './hamburger';
+// import Burger from './hamburger';
 import SubMenuButton from './sub-menu-button';
 
 const mobileNavBreakPoint = `890px`;
@@ -21,12 +21,13 @@ const MainNav = styled(animated.nav)`
     bottom: 0;
     display: flex;
     padding-top: 100px;
+    z-index: 11;
   }
   @media (min-width: 600px) {
     padding-left: 150px;
   }
   @media (min-width: ${mobileNavBreakPoint}) {
-    display: block;
+    display: block !important;
     opacity: 1 !important;
     padding-left: 0;
   }
@@ -52,6 +53,7 @@ const Menu = styled.ul`
       text-decoration: none;
       font-size: 20px;
       line-height: 100%;
+      transition: opacity 0.2s;
       @media (min-width: 600px) {
         font-size: 30px;
       }
@@ -59,6 +61,10 @@ const Menu = styled.ul`
         padding: 10px 20px;
         font-size: 18px;
       }
+      /* &:hover {
+        opacity: 0.7;
+        text-decoration: underline;
+      } */
     }
     &.has-sub-menu {
       position: relative;
@@ -91,6 +97,37 @@ const Menu = styled.ul`
         }
       }
     }
+  }
+`;
+
+const StyledBurger = styled.button`
+  top: 5%;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 15;
+
+  &:focus {
+    outline: none;
+  }
+  @media (min-width: ${mobileNavBreakPoint}) {
+    display: none;
+  }
+
+  div {
+    width: 2rem;
+    height: 0.25rem;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    transform-origin: 1px;
   }
 `;
 
@@ -132,13 +169,38 @@ const MainMenu = ({ style, themeColor }) => {
   // Mobile Nav
   const [isNavOpen, setNavOpen] = useState(false);
   const navAnimation = useSpring({
-    opacity: isNavOpen ? `1` : `0`
+    opacity: isNavOpen ? `1` : `0`,
+    display: isNavOpen ? `flex` : `none`
+  });
+
+  // Hamburger
+  const [isBurgerOpen, setBurgerOpen] = useState(false);
+  const topBun = useSpring({
+    transform: isBurgerOpen ? 'rotate(45deg)' : 'rotate(0deg)'
+  });
+  const meat = useSpring({
+    transform: isBurgerOpen ? 'translateX(-20px)' : 'translateX(0px)',
+    opacity: isBurgerOpen ? '0' : '1'
+  });
+  const bottomBun = useSpring({
+    transform: isBurgerOpen ? 'rotate(-45deg)' : 'rotate(0deg)'
   });
 
   return (
     <>
-      <Burger isNavOpen={isNavOpen} setNavOpen={setNavOpen} />
-      <MainNav style={navAnimation}>
+      <StyledBurger
+        isBurgerOpen={isBurgerOpen}
+        setBurgerOpen={setBurgerOpen}
+        onClick={() => {
+          setBurgerOpen(!isBurgerOpen);
+          setNavOpen(!isNavOpen);
+        }}
+      >
+        <animated.div style={topBun} />
+        <animated.div style={meat} />
+        <animated.div style={bottomBun} />
+      </StyledBurger>
+      <MainNav style={Object.assign(navAnimation, themeColor.background)}>
         <Menu>
           {navItemObjects.map(item => {
             return (
@@ -149,7 +211,11 @@ const MainMenu = ({ style, themeColor }) => {
                   }
                 >
                   <Link
-                    style={themeColor.page}
+                    onClick={() => {
+                      setBurgerOpen(!isBurgerOpen);
+                      setNavOpen(!isNavOpen);
+                    }}
+                    style={themeColor.pageLink}
                     to={(() => {
                       if (item.url.includes('sapphireapi.com')) {
                         return item.url.replace(
@@ -171,11 +237,18 @@ const MainMenu = ({ style, themeColor }) => {
                   )}
 
                   {item.childItems.nodes.length > 0 && (
-                    <animated.ul style={revealSubMenu}>
+                    <animated.ul
+                      style={Object.assign(
+                        revealSubMenu,
+                        themeColor.background,
+                        { borderTop: `2px solid ${themeColor.highLight.color}` }
+                      )}
+                    >
                       {item.childItems.nodes.map(childItem => {
                         return (
                           <li key={childItem.id}>
                             <Link
+                              style={themeColor.pageLink}
                               to={childItem.url.replace(
                                 'https://sapphireapi.com/therunningcoder',
                                 ''

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import MainMenu from './menu';
+import Theme from './themeColors';
 
 const HeaderWrapper = styled.header`
   background: #122738;
@@ -24,70 +25,54 @@ const HeaderWrapper = styled.header`
   @media (min-width: 2000px) {
     padding: 10px 80px;
   }
-  h1 {
-    font-size: 22px;
-    margin: 0;
-    @media (min-width: 768px) {
-      font-size: 30px;
-    }
-    @media (min-width: 1400px) {
-      font-size: 40px;
-    }
-    a {
-      /* color: rgb(158, 255, 255); */
-      text-decoration: none;
+  .site-title {
+    z-index: 10;
+    text-decoration: none;
+    h1 {
+      font-size: 22px;
+      margin: 0;
+      @media (min-width: 768px) {
+        font-size: 30px;
+      }
+      @media (min-width: 1400px) {
+        font-size: 40px;
+      }
     }
   }
 `;
 
-const darkTheme = [
-  {
-    title: {
-      color: 'red'
-    },
-    page: {
-      color: 'red'
-    }
-  },
-  {
-    title: {
-      color: 'blue'
-    },
-    page: {
-      color: 'blue'
-    }
-  },
-  {
-    title: {
-      color: 'green'
-    },
-    page: {
-      color: 'green'
-    }
-  },
-  {
-    title: {
-      color: 'black'
-    },
-    page: {
-      color: 'black'
-    }
-  }
-];
+const ThemeName = styled.div`
+  position: absolute;
+  top: 55px;
+  right: 20px;
+  font-size: 12px;
+  font-style: italic;
+`;
 
 const Header = ({ siteTitle }) => {
-  let randomTheme = Math.floor(Math.random() * darkTheme.length + 0);
+  console.log(Theme()[Math.floor(Math.random() * Theme().length + 0)]);
+
+  let randomTheme = Theme()[Math.floor(Math.random() * Theme().length + 0)];
 
   return (
-    <HeaderWrapper>
-      <h1>
-        <Link
-          style={darkTheme[randomTheme].title}
-          to="/"
-        >{`{ ${siteTitle} }`}</Link>
-      </h1>
-      <MainMenu themeColor={darkTheme[randomTheme]} />
-    </HeaderWrapper>
+    <>
+      <HeaderWrapper style={randomTheme.background}>
+        <Link className="site-title" style={randomTheme.title} to="/">
+          <h1 style={randomTheme.title}>{`{ ${siteTitle} }`}</h1>
+        </Link>
+
+        <MainMenu themeColor={randomTheme} />
+      </HeaderWrapper>
+      <ThemeName>
+        <a
+          href={randomTheme.theme.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Nav Theme: {randomTheme.theme.name}
+        </a>
+      </ThemeName>
+    </>
   );
 };
 
