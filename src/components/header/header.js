@@ -41,19 +41,15 @@ const HeaderWrapper = styled.header`
   }
 `;
 
-const ThemeName = styled.div`
+const ThemeName = styled.a`
   position: absolute;
   top: 55px;
   right: 20px;
   font-size: 12px;
   font-style: italic;
 `;
-
+let randomTheme = Theme()[Math.floor(Math.random() * Theme().length + 0)];
 const Header = ({ siteTitle }) => {
-  console.log(Theme()[Math.floor(Math.random() * Theme().length + 0)]);
-
-  let randomTheme = Theme()[Math.floor(Math.random() * Theme().length + 0)];
-
   return (
     <>
       <HeaderWrapper style={randomTheme.background}>
@@ -63,14 +59,12 @@ const Header = ({ siteTitle }) => {
 
         <MainMenu themeColor={randomTheme} />
       </HeaderWrapper>
-      <ThemeName>
-        <a
-          href={randomTheme.theme.link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Nav Theme: {randomTheme.theme.name}
-        </a>
+      <ThemeName
+        href={randomTheme.theme.link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Nav Theme: {randomTheme.theme.name}
       </ThemeName>
     </>
   );
