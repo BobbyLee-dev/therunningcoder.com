@@ -53,11 +53,10 @@ const Header = ({ siteTitle }) => {
   const themeColors = Theme();
   let randomTheme =
     themeColors[Math.floor(Math.random() * themeColors.length + 0)];
-  const headerBG = randomTheme.background;
 
   return (
     <>
-      <HeaderWrapper style={headerBG}>
+      <HeaderWrapper style={randomTheme.background}>
         {console.log(randomTheme.background)}
 
         <Link className="site-title" style={randomTheme.title} to="/">
@@ -66,13 +65,13 @@ const Header = ({ siteTitle }) => {
 
         <MainMenu themeColor={randomTheme} />
       </HeaderWrapper>
-      <ThemeName
+      {/* <ThemeName
         href={randomTheme.theme.link}
         target="_blank"
         rel="noopener noreferrer"
       >
         Nav Theme: {randomTheme.theme.name}
-      </ThemeName>
+      </ThemeName> */}
     </>
   );
 };
