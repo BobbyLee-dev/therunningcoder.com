@@ -1,12 +1,12 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import MainMenu from './menu';
 import Theme from './themeColors';
 
 const HeaderWrapper = styled.header`
-  background: #122738;
+  /* background: #122738; */
   margin-bottom: 1.45rem;
   display: flex;
   flex-direction: row;
@@ -49,16 +49,8 @@ const ThemeName = styled.a`
   font-style: italic;
 `;
 
-const themeColors = Theme();
-let randomTheme =
-  themeColors[Math.floor(Math.random() * themeColors.length + 0)];
 const Header = ({ siteTitle }) => {
-  useEffect(() => {
-    console.log('use');
-
-    randomTheme =
-      themeColors[Math.floor(Math.random() * themeColors.length + 0)];
-  });
+  let randomTheme = Theme();
 
   return (
     <>
