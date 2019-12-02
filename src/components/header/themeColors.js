@@ -82,6 +82,33 @@ const Theme = () => {
       highLightHover: {
         color: 'rgba(255, 98, 140, .7)'
       }
+    },
+    {
+      theme: {
+        name: 'Level Up 2',
+        link: 'https://vscodethemes.com/e/leveluptutorials.theme-levelup'
+      },
+      background: {
+        backgroundColor: '#373142'
+      },
+      title: {
+        color: 'rgba(130, 216, 216, 1)'
+      },
+      titleHover: {
+        color: 'rgba(130, 216, 216, .7)'
+      },
+      pageLink: {
+        color: 'rgba(203, 229, 108, 1)'
+      },
+      pageLinkHover: {
+        color: 'rgba(203, 229, 108, .7)'
+      },
+      highLight: {
+        color: 'rgba(246, 123, 123, 1)'
+      },
+      highLightHover: {
+        color: 'rgba(246, 123, 123, .7)'
+      }
     }
   ];
   return themeColors[Math.floor(Math.random() * themeColors.length + 0)];
