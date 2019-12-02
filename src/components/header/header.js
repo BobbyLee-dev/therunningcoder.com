@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import MainMenu from './menu';
 import Theme from './themeColors';
@@ -49,29 +49,33 @@ const ThemeName = styled.a`
   font-style: italic;
 `;
 
+const themeColors = Theme();
+let randomTheme =
+  themeColors[Math.floor(Math.random() * themeColors.length + 0)];
 const Header = ({ siteTitle }) => {
-  const themeColors = Theme();
-  let randomTheme =
-    themeColors[Math.floor(Math.random() * themeColors.length + 0)];
+  useEffect(() => {
+    console.log('use');
+
+    randomTheme =
+      themeColors[Math.floor(Math.random() * themeColors.length + 0)];
+  });
 
   return (
     <>
       <HeaderWrapper style={randomTheme.background}>
-        {console.log(randomTheme.background)}
-
         <Link className="site-title" style={randomTheme.title} to="/">
           <h1 style={randomTheme.title}>{`{ ${siteTitle} }`}</h1>
         </Link>
 
         <MainMenu themeColor={randomTheme} />
       </HeaderWrapper>
-      {/* <ThemeName
+      <ThemeName
         href={randomTheme.theme.link}
         target="_blank"
         rel="noopener noreferrer"
       >
         Nav Theme: {randomTheme.theme.name}
-      </ThemeName> */}
+      </ThemeName>
     </>
   );
 };
