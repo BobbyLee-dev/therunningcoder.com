@@ -48,7 +48,10 @@ const ThemeName = styled.a`
   font-size: 12px;
   font-style: italic;
 `;
-let randomTheme = Theme()[Math.floor(Math.random() * Theme().length + 0)];
+
+const themeColors = Theme();
+let randomTheme =
+  themeColors[Math.floor(Math.random() * themeColors.length + 0)];
 const Header = ({ siteTitle }) => {
   return (
     <>
