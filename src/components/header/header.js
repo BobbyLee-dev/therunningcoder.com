@@ -53,11 +53,11 @@ const Header = ({ siteTitle }) => {
   const themeColors = Theme();
   let randomTheme =
     themeColors[Math.floor(Math.random() * themeColors.length + 0)];
-  console.log(randomTheme);
+  const headerBG = randomTheme.background;
 
   return (
     <>
-      <HeaderWrapper style={randomTheme.background}>
+      <HeaderWrapper style={headerBG}>
         {console.log(randomTheme.background)}
 
         <Link className="site-title" style={randomTheme.title} to="/">
