@@ -131,9 +131,7 @@ const StyledBurger = styled.button`
 `;
 
 const MainMenu = ({ style, themeColor }) => {
-  console.log('menu.js********');
-  console.log(themeColor);
-  console.log('***************');
+  console.log(themeColor.background.backgroundColor);
 
   const mainNav = useStaticQuery(graphql`
     query MainNavQuery {
