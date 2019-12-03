@@ -1,4 +1,6 @@
 const Theme = () => {
+  console.log('Theme function called');
+
   const themeColors = [
     {
       theme: {
@@ -138,6 +140,9 @@ const Theme = () => {
       }
     }
   ];
+  console.log('theme function returning...');
+  console.log(themeColors[Math.floor(Math.random() * themeColors.length + 0)]);
+
   return themeColors[Math.floor(Math.random() * themeColors.length + 0)];
 };
 export default Theme;
