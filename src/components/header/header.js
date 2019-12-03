@@ -49,15 +49,11 @@ const ThemeName = styled.a`
 `;
 
 const Header = ({ siteTitle }) => {
-  let randomTheme = Theme();
+  const randomTheme = Theme();
 
   return (
     <>
-      <HeaderWrapper
-        style={{
-          background: `${randomTheme.background.backgroundColor}`
-        }}
-      >
+      <HeaderWrapper style={randomTheme.background}>
         <Link className="site-title" style={randomTheme.title} to="/">
           <h1 style={randomTheme.title}>{`{ ${siteTitle} }`}</h1>
         </Link>
