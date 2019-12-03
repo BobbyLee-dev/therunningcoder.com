@@ -131,6 +131,10 @@ const StyledBurger = styled.button`
 `;
 
 const MainMenu = ({ style, themeColor }) => {
+  console.log('menu.js********');
+  console.log(themeColor);
+  console.log('***************');
+
   const mainNav = useStaticQuery(graphql`
     query MainNavQuery {
       wpgraphql {
