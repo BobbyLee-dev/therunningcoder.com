@@ -55,7 +55,8 @@ const Header = ({ siteTitle }) => {
     <>
       <HeaderWrapper
         style={randomTheme.background}
-        test={console.log('test header werapper')}
+        test={console.log('test header werapper ')}
+        testing={console.log(randomTheme.background)}
       >
         <Link className="site-title" style={randomTheme.title} to="/">
           <h1 style={randomTheme.title}>{`{ ${siteTitle} }`}</h1>
