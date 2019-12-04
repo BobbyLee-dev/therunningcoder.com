@@ -63,7 +63,7 @@ const Header = ({ siteTitle }) => {
       </HeaderWrapper>
 
       {/* <ThemeName innerHTML={randomTheme.theme.name} /> */}
-      <ThemeName innerHTML={randomThemeName} />
+      <ThemeName dangerouslySetInnerHTML={{ __html: randomTheme.theme.name }} />
     </>
   );
 };
