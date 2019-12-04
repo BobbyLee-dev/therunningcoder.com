@@ -51,7 +51,6 @@ const ThemeName = styled.div`
 
 const Header = ({ siteTitle }) => {
   const randomTheme = Theme();
-  const randomThemeName = randomTheme.theme.name;
   return (
     <>
       <HeaderWrapper style={randomTheme.background}>
@@ -62,8 +61,11 @@ const Header = ({ siteTitle }) => {
         <MainMenu themeColor={randomTheme} />
       </HeaderWrapper>
 
-      {/* <ThemeName innerHTML={randomTheme.theme.name} /> */}
-      <ThemeName dangerouslySetInnerHTML={{ __html: randomTheme.theme.name }} />
+      <ThemeName
+        dangerouslySetInnerHTML={{
+          __html: `Nav Theme: <a href="${randomTheme.theme.link}">${randomTheme.theme.name}</a>`
+        }}
+      />
     </>
   );
 };
