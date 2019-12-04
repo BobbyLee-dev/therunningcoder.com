@@ -42,6 +42,7 @@ const HeaderWrapper = styled.header`
 
 const ThemeName = styled.div`
   position: absolute;
+  display: block;
   top: 60px;
   right: 20px;
   font-size: 12px;
@@ -60,13 +61,9 @@ const Header = ({ siteTitle }) => {
 
         <MainMenu themeColor={randomTheme} />
       </HeaderWrapper>
-      <ThemeName
-      // href={randomTheme.theme.link}
-      // target="_blank"
-      // rel="noopener noreferrer"
-      >
-        Nav Theme: {randomThemeName}
-      </ThemeName>
+
+      {/* <ThemeName innerHTML={randomTheme.theme.name} /> */}
+      <ThemeName innerHTML={randomThemeName} />
     </>
   );
 };
