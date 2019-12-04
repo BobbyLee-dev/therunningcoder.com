@@ -50,7 +50,7 @@ const ThemeName = styled.div`
 
 const Header = ({ siteTitle }) => {
   const randomTheme = Theme();
-
+  const randomThemeName = randomTheme.theme.name;
   return (
     <>
       <HeaderWrapper style={randomTheme.background}>
@@ -65,7 +65,7 @@ const Header = ({ siteTitle }) => {
       // target="_blank"
       // rel="noopener noreferrer"
       >
-        Nav Theme: {randomTheme.theme.name}
+        Nav Theme: {randomThemeName}
       </ThemeName>
     </>
   );
