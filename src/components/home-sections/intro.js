@@ -10,7 +10,8 @@ const HomeIntro = props => {
   return (
     <HomeIntroWrap className={props.class} id={props.id}>
       <h2>{props.heading}</h2>
-      <p dangerouslySetInnerHTML={{ __html: props.content }} />
+      <div class="p" dangerouslySetInnerHTML={{ __html: props.content }} />
+
       {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
     </HomeIntroWrap>
   );
