@@ -1,10 +1,14 @@
-import React from 'react'
-// import { useStaticQuery, graphql, Link } from 'gatsby'
+import React from 'react';
+import styled from 'styled-components';
+
+const WelcomeWrap = styled.section``;
 
 const HomeWelcome = props => (
-  <>
-    <pre>{JSON.stringify(props, null, 2)}</pre>
-  </>
-)
+  <WelcomeWrap className={props.class} id={props.id}>
+    <h2>{props.heading}</h2>
+    <p dangerouslySetInnerHTML={{ __html: props.content }} />
+    {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
+  </WelcomeWrap>
+);
 
-export default HomeWelcome
+export default HomeWelcome;

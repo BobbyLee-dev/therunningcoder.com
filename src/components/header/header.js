@@ -40,13 +40,13 @@ const HeaderWrapper = styled.header`
   }
 `;
 
-const ThemeName = styled.a`
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  font-size: 12px;
-  font-style: italic;
-`;
+// const ThemeName = styled.a`
+//   position: absolute;
+//   top: 60px;
+//   right: 20px;
+//   font-size: 12px;
+//   font-style: italic;
+// `;
 
 const Header = ({ siteTitle }) => {
   const randomTheme = Theme();
@@ -60,13 +60,13 @@ const Header = ({ siteTitle }) => {
 
         <MainMenu themeColor={randomTheme} />
       </HeaderWrapper>
-      <ThemeName
+      {/* <ThemeName
         href={randomTheme.theme.link}
         target="_blank"
         rel="noopener noreferrer"
       >
         Nav Theme: {randomTheme.theme.name}
-      </ThemeName>
+      </ThemeName> */}
     </>
   );
 };

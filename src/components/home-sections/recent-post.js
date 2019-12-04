@@ -1,5 +1,5 @@
-import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import React from 'react';
+import { graphql, StaticQuery } from 'gatsby';
 
 export default () => (
   <StaticQuery
@@ -24,4 +24,4 @@ export default () => (
       <pre>{JSON.stringify(data.wpgraphql.posts.nodes[0], null, 2)}</pre>
     )}
   />
-)
+);

@@ -1,6 +1,4 @@
 import React from 'react';
-// import Goo from '.././blob/blob';
-// import { useStaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components';
 
 const HomeIntroWrap = styled.section`
@@ -10,9 +8,10 @@ const HomeIntroWrap = styled.section`
 
 const HomeIntro = props => {
   return (
-    <HomeIntroWrap>
-      {/* <Goo /> */}
-      <pre>{JSON.stringify(props, null, 2)}</pre>
+    <HomeIntroWrap className={props.class} id={props.id}>
+      <h2>{props.heading}</h2>
+      <p dangerouslySetInnerHTML={{ __html: props.content }} />
+      {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
     </HomeIntroWrap>
   );
 };
