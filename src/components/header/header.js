@@ -6,7 +6,7 @@ import MainMenu from './menu';
 import Theme from './themeColors';
 
 const HeaderWrapper = styled.header`
-  margin-bottom: 1.45rem;
+  /* margin-bottom: 1.45rem; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -8,6 +8,7 @@ import HomeIntro from '../components/home-sections/intro';
 import RecentPost from '../components/home-sections/recent-post';
 import RecentProject from '../components/home-sections/recent-project';
 import HomeWelcome from '../components/home-sections/welcome';
+import HomeAbout from '../components/home-sections/about';
 
 export const pageQuery = graphql`
   {
@@ -19,16 +20,21 @@ export const pageQuery = graphql`
             ... on WPGraphQL_Page_Homesections_Sections_Intro {
               id
               class
+              heading
               content
               fieldGroupName
-              heading
             }
             ... on WPGraphQL_Page_Homesections_Sections_Welcome {
               id
               class
               content
               fieldGroupName
-              heading
+            }
+            ... on WPGraphQL_Page_Homesections_Sections_About {
+              id
+              class
+              content
+              fieldGroupName
             }
           }
         }
@@ -51,6 +57,8 @@ const Home = ({ data }) => {
             return <HomeIntro key={section.id} {...section} />;
           case 'WPGraphQL_Page_Homesections_Sections_Welcome':
             return <HomeWelcome key={section.id} {...section} />;
+          case 'WPGraphQL_Page_Homesections_Sections_About':
+            return <HomeAbout key={section.id} {...section} />;
           default:
             return <p>You done busted it.</p>;
         }
