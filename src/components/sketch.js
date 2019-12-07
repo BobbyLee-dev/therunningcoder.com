@@ -1,4 +1,4 @@
-export default function ketch(p) {
+const Sketch = p => {
   p.setup = () => {
     p.createCanvas(720, 400);
     p.background(51);
@@ -21,4 +21,6 @@ export default function ketch(p) {
       p.ellipse(xloc, yloc, size - i * steps, size - i * steps);
     }
   };
-}
+};
+
+export default Sketch;

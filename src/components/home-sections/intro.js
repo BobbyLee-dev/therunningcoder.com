@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import P5Wrapper from 'react-p5-wrapper';
-import sketch from '../sketch';
+import Sketch from '../sketch';
+import SketchWrapper from '../sketchWrapper';
 
 const HomeIntroWrap = styled.section`
   position: relative;
@@ -21,11 +22,14 @@ const HomeIntroWrap = styled.section`
 `;
 
 const HomeIntro = props => {
+  console.log(<P5Wrapper sketch={Sketch} />);
+
   return (
     <HomeIntroWrap className={props.class} id={props.id}>
       <h2>{props.heading}</h2>
-      <div class="p" dangerouslySetInnerHTML={{ __html: props.content }} />
-      <P5Wrapper sketch={sketch} color={'rgb(130, 216, 216)'} />
+      <div dangerouslySetInnerHTML={{ __html: props.content }} />
+      {/* <P5Wrapper sketch={Sketch} /> */}
+      <SketchWrapper />
       {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
     </HomeIntroWrap>
   );

@@ -4,7 +4,33 @@
 //  * See: https://www.gatsbyjs.org/docs/node-apis/
 //  */
 
-// // You can delete this file if you're not using it
+// You can delete this file if you're not using it
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-html' || stage === 'develop-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /p5/,
+            use: loaders.null()
+          }
+        ]
+      }
+    });
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /react-p5-wrapper/,
+            use: loaders.null()
+          }
+        ]
+      }
+    });
+  }
+};
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   // Blog Posts
   const result = await graphql(`
@@ -18,13 +44,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
     }
-  `)
+  `);
 
   if (result.errors) {
-    reporter.panic('failed to create pages', result.errors)
+    reporter.panic('failed to create pages', result.errors);
   }
 
-  const posts = result.data.wpgraphql.posts.nodes
+  const posts = result.data.wpgraphql.posts.nodes;
 
   posts.forEach(post => {
     actions.createPage({
@@ -32,10 +58,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: require.resolve('./src/templates/post.js'),
       context: {
         slug: `/${'blog/' + post.slug}/`,
-        id: post.id,
-      },
-    })
-  })
+        id: post.id
+      }
+    });
+  });
 
   // My Projects
   const projectsResult = await graphql(`
@@ -50,13 +76,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
     }
-  `)
+  `);
 
   if (projectsResult.errors) {
-    reporter.panic('failed to create pages', projectsResult.errors)
+    reporter.panic('failed to create pages', projectsResult.errors);
   }
 
-  const myProjects = projectsResult.data.wpgraphql.myProjects.nodes
+  const myProjects = projectsResult.data.wpgraphql.myProjects.nodes;
 
   myProjects.forEach(project => {
     actions.createPage({
@@ -64,8 +90,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: require.resolve('./src/templates/project.js'),
       context: {
         slug: `/${'projects/' + project.slug}/`,
-        id: project.id,
-      },
-    })
-  })
-}
+        id: project.id
+      }
+    });
+  });
+};

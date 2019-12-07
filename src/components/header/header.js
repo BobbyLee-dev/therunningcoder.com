@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import MainMenu from './menu';
@@ -70,12 +70,12 @@ const Header = ({ siteTitle }) => {
   );
 };
 
-Header.propTypes = {
-  siteTitle: PropTypes.string
-};
+// Header.propTypes = {
+//   siteTitle: PropTypes.string
+// };
 
-Header.defaultProps = {
-  siteTitle: ``
-};
+// Header.defaultProps = {
+//   siteTitle: ``
+// };
 
 export default Header;
