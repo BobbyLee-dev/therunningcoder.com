@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import MainMenu from './menu';
-import Theme from './themeColors';
 
 const HeaderWrapper = styled.header`
   /* margin-bottom: 1.45rem; */
@@ -40,32 +39,31 @@ const HeaderWrapper = styled.header`
   }
 `;
 
-const ThemeName = styled.div`
-  position: absolute;
-  display: block;
-  top: 60px;
-  right: 20px;
-  font-size: 12px;
-  font-style: italic;
-`;
+// const ThemeName = styled.div`
+//   position: absolute;
+//   display: block;
+//   top: 60px;
+//   right: 20px;
+//   font-size: 12px;
+//   font-style: italic;
+// `;
 
-const Header = ({ siteTitle }) => {
-  const randomTheme = Theme();
+const Header = ({ siteTitle, colorTheme }) => {
   return (
     <>
-      <HeaderWrapper style={randomTheme.background}>
-        <Link className="site-title" style={randomTheme.title} to="/">
-          <h1 style={randomTheme.title}>{`{ ${siteTitle} }`}</h1>
+      <HeaderWrapper style={colorTheme.background}>
+        <Link className="site-title" style={colorTheme.title} to="/">
+          <h1 style={colorTheme.title}>{`{ ${siteTitle} }`}</h1>
         </Link>
 
-        <MainMenu themeColor={randomTheme} />
+        <MainMenu themeColor={colorTheme} />
       </HeaderWrapper>
 
-      <ThemeName
+      {/* <ThemeName
         dangerouslySetInnerHTML={{
           __html: `Nav Theme: <a href="${randomTheme.theme.link}">${randomTheme.theme.name}</a>`
         }}
-      />
+      /> */}
     </>
   );
 };

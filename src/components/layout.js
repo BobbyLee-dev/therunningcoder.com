@@ -6,18 +6,19 @@
  */
 
 import React from 'react';
+
 // import PropTypes from 'prop-types';
 
 import Header from './header/header';
 import './layout.css';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, colorTheme }) => {
   const { title } = useSiteMetadata();
 
   return (
     <>
-      <Header siteTitle={title} />
+      <Header colorTheme={colorTheme} siteTitle={title} />
       <div style={{}}>
         <main>{children}</main>
         <footer>

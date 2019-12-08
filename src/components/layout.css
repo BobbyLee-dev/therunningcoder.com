@@ -634,3 +634,21 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+section.content {
+  padding: 70px 20px;
+  text-align: center;
+}
+@media (min-width: 1240px) {
+  section.content {
+    padding: 100px 40px;
+  }
+}
+@media (min-width: 1240px) {
+  section.content {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: calc(20px + (50% - (1240px / 2)));
+    padding-right: calc(20px + (50% - (1240px / 2)));
+  }
+}

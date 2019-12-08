@@ -9,6 +9,7 @@ import RecentPost from '../components/home-sections/recent-post';
 import RecentProject from '../components/home-sections/recent-project';
 import HomeWelcome from '../components/home-sections/welcome';
 import HomeAbout from '../components/home-sections/about';
+import Theme from '../components/themeColors';
 
 export const pageQuery = graphql`
   {
@@ -45,9 +46,9 @@ export const pageQuery = graphql`
 
 const Home = ({ data }) => {
   const sections = data.wpgraphql.pageBy.homeSections.sections;
-
+  const randomTheme = Theme();
   return (
-    <Layout>
+    <Layout colorTheme={randomTheme}>
       <SEO title="Home" />
       {sections.map(section => {
         const typeName = section.__typename;
@@ -56,7 +57,13 @@ const Home = ({ data }) => {
           case 'WPGraphQL_Page_Homesections_Sections_Intro':
             return <HomeIntro key={section.id} {...section} />;
           case 'WPGraphQL_Page_Homesections_Sections_Welcome':
-            return <HomeWelcome key={section.id} {...section} />;
+            return (
+              <HomeWelcome
+                colorTheme={randomTheme}
+                key={section.id}
+                {...section}
+              />
+            );
           case 'WPGraphQL_Page_Homesections_Sections_About':
             return <HomeAbout key={section.id} {...section} />;
           default:

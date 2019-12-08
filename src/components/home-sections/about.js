@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const AboutWrap = styled.section``;
 
 const HomeAbout = props => (
-  <AboutWrap className={props.class} id={props.id}>
+  <AboutWrap className={`content ${props.class}`} id={props.id}>
     <div dangerouslySetInnerHTML={{ __html: props.content }} />
     {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
   </AboutWrap>
