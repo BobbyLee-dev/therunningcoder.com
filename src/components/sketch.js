@@ -31,7 +31,7 @@ const Sketch = p => {
     angle = 0;
     iterations = 5;
     p.createCanvas(p.windowWidth, p.windowHeight);
-    p.strokeWeight(3);
+    p.strokeWeight(2);
     p.noFill();
     p.stroke('#fff');
   };
@@ -50,7 +50,7 @@ const Sketch = p => {
     p.push();
     p.translate(x, y);
     p.rotate(iteration * angle);
-    let size = ((iteration / iterations) * p.windowHeight) / 3;
+    let size = ((iteration / iterations) * p.windowHeight) / 4;
     p.rect(-size / 2, -size / 2, size, size);
     p.d(iteration, -size / 2, -size / 2);
     p.d(iteration, size / 2, size / 2);
