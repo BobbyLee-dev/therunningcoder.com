@@ -64,4 +64,71 @@ const Sketch = p => {
   };
 };
 
+// ********************
+
+// const Sketch = p => {
+//   p.setup = () => {
+//     p.createCanvas(p.windowWidth, p.windowHeight);
+//     p.angleMode(p.DEGREES);
+//     p.colorMode(p.HSB);
+//   };
+
+//   let particles = [];
+//   let angle = 0;
+
+//   p.draw = () => {
+//     p.background(0);
+//     p.translate(p.width / 2, p.height / 2);
+//     if (p.frameCount % 5 === 0) {
+//       const changesUntilCenter = p.int(p.map(p.mouseX, 0, p.width, 1000, 10));
+//       particles.push(new Particle(angle, changesUntilCenter, p));
+//     }
+//     const angleChange = p.int(p.map(p.mouseY, 0, p.height, 1, 10));
+//     angle = (angle + angleChange) % 360;
+//     let deleteIndexes = [];
+//     particles.map((k, i) => {
+//       if (k.pos.p.mag() > 1) {
+//         k.p.draw();
+//         k.p.move();
+//       } else {
+//         deleteIndexes.push(i);
+//       }
+//     });
+//     deleteIndexes.reverse();
+//     deleteIndexes.forEach(i => particles.splice(i, 1));
+//   };
+
+//   p.keyPressed = () => {
+//     particles = [];
+//     angle = 0;
+//   };
+
+//   class Particle {
+//     constructor(angle, changesUntilCenter, p) {
+//       console.log(this);
+
+//       this.pos = p.createVector(
+//         (p.cos(angle) * p.width) / 3,
+//         (p.sin(angle) * p.height) / 3
+//       );
+//       this.color = angle; // They have the same range
+//       this.chg = p.Vector.p.div(this.pos, changesUntilCenter);
+//       this.size = 30;
+//       const smallestSize = 5;
+//       this.sizeChg = (30 - smallestSize) / changesUntilCenter;
+//     }
+
+//     draw() {
+//       p.noStroke();
+//       p.fill(this.color, 100, 100);
+//       p.ellipse(this.pos.x, this.pos.y, this.size);
+//     }
+
+//     move() {
+//       this.pos.sub(this.chg);
+//       this.size -= this.sizeChg;
+//     }
+//   }
+// };
+
 export default Sketch;
