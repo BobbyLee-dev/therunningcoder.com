@@ -41,8 +41,8 @@ module.exports = {
       options: {
         typeName: `WPGraphQL`,
         fieldName: `wpgraphql`,
-        url: `https://sapphireapi.com/therunningcoder/graphql`,
-        refetchInterval: 60
+        url: `https://sapphireapi.com/therunningcoder/graphql`
+        // refetchInterval: 60
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality

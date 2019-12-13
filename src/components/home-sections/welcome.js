@@ -5,22 +5,29 @@ const WelcomeWrap = styled.section`
   position: relative;
   font-family: monospace;
   font-size: 18px;
-  padding: 0;
+  padding: 200px 0;
   @media (min-width: 768px) {
     font-size: 22px;
   }
   .welcome-content {
-    padding: 100px 20px;
+    padding: 20px;
     max-width: 900px;
     margin: auto;
     text-align: center;
+    line-height: 2em;
     a {
       color: #fff;
+      z-index: 30;
+      position: relative;
     }
   }
+  .svgcolor {
+    position: absolute;
+    top: 0;
+  }
   .svgcolor-2 {
-    position: relative;
-    bottom: -6px;
+    position: absolute;
+    bottom: 0;
     transform: scaleY(-1);
   }
 `;
