@@ -129,9 +129,9 @@ const Robot = styled.div`
   }
   .arm {
     left: 5px;
-    top: 20.5px;
+    top: 22.5px;
     width: 8px;
-    height: 5.5px;
+    /* height: 5.5px; */
     div {
       border-radius: 2px;
       top: 100%;
@@ -153,7 +153,7 @@ const Robot = styled.div`
     top: 45px;
     left: 5px;
     width: 8px;
-    height: 4px;
+    /* height: 4px; */
     div {
       border-radius: 5px;
       width: 100%;
@@ -181,33 +181,58 @@ const Shadow = styled.div`
   z-index: 1;
 `;
 
-const RunningMan = () => {
+const RunningMan = ({ color, shadowColor }) => {
   return (
     <RunningArea>
       <Robot>
-        <div className="head"></div>
-        <div className="arm l">
-          <div>
-            <div></div>
+        <div
+          style={{ background: 'none', border: `solid 1px ${color}` }}
+          className="head"
+        ></div>
+        <div
+          style={{ background: 'none', border: `solid 1px ${color}` }}
+          className="arm l"
+        >
+          <div style={{ background: 'none', border: `solid 1px ${color}` }}>
+            <div
+              style={{ background: 'none', border: `solid 1px ${color}` }}
+            ></div>
           </div>
         </div>
-        <div className="leg l">
-          <div>
-            <div></div>
+        <div
+          style={{ background: 'none', border: `solid 1px ${color}` }}
+          className="leg l"
+        >
+          <div style={{ background: 'none', border: `solid 1px ${color}` }}>
+            <div
+              style={{ background: 'none', border: `solid 1px ${color}` }}
+            ></div>
           </div>
         </div>
-        <div className="leg r">
-          <div>
-            <div></div>
+        <div
+          style={{ background: 'none', border: `solid 1px ${color}` }}
+          className="leg r"
+        >
+          <div style={{ background: 'none', border: `solid 1px ${color}` }}>
+            <div
+              style={{ background: 'none', border: `solid 1px ${color}` }}
+            ></div>
           </div>
         </div>
-        <div className="arm r">
-          <div>
-            <div></div>
+        <div
+          style={{ background: 'none', border: `solid 1px ${color}` }}
+          className="arm r"
+        >
+          <div style={{ background: 'none', border: `solid 1px ${color}` }}>
+            <div
+              style={{ background: 'none', border: `solid 1px ${color}` }}
+            ></div>
           </div>
         </div>
       </Robot>
-      <Shadow />
+      <Shadow
+        style={{ background: 'none', border: `solid 1px ${shadowColor}` }}
+      />
     </RunningArea>
   );
 };

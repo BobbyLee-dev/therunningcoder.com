@@ -17,9 +17,14 @@ const WelcomeWrap = styled.section`
     text-align: center;
     line-height: 2em;
     a {
+      display: block;
+      text-decoration: none;
       color: #fff;
       z-index: 30;
       position: relative;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
   .svgcolor {

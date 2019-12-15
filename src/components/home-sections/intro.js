@@ -53,7 +53,10 @@ const HomeIntro = props => {
       {console.log(props.content)}
       {/* <div dangerouslySetInnerHTML={{ __html: props.content }} /> */}
       <TextAnimation text={props.content} />
-      <RunningMan />
+      <RunningMan
+        color={colorTheme.title.color}
+        shadowColor={colorTheme.pageLink.color}
+      />
 
       {/* <svg
         preserveAspectRatio="none"
