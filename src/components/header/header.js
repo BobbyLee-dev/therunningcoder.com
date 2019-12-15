@@ -1,11 +1,10 @@
 import { Link } from 'gatsby';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import MainMenu from './menu';
 
 const HeaderWrapper = styled.header`
-  /* margin-bottom: 1.45rem; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -39,15 +38,6 @@ const HeaderWrapper = styled.header`
   }
 `;
 
-// const ThemeName = styled.div`
-//   position: absolute;
-//   display: block;
-//   top: 60px;
-//   right: 20px;
-//   font-size: 12px;
-//   font-style: italic;
-// `;
-
 const Header = ({ siteTitle, colorTheme }) => {
   return (
     <>
@@ -58,22 +48,16 @@ const Header = ({ siteTitle, colorTheme }) => {
 
         <MainMenu themeColor={colorTheme} />
       </HeaderWrapper>
-
-      {/* <ThemeName
-        dangerouslySetInnerHTML={{
-          __html: `Nav Theme: <a href="${randomTheme.theme.link}">${randomTheme.theme.name}</a>`
-        }}
-      /> */}
     </>
   );
 };
 
-// Header.propTypes = {
-//   siteTitle: PropTypes.string
-// };
+Header.propTypes = {
+  siteTitle: PropTypes.string
+};
 
-// Header.defaultProps = {
-//   siteTitle: ``
-// };
+Header.defaultProps = {
+  siteTitle: ``
+};
 
 export default Header;

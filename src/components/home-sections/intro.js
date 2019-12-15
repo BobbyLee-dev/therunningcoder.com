@@ -1,17 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import TextAnimation from '../header/text-annimate';
+import TextAnimation from '../text-annimate';
+import RunningMan from '../running-man';
 
 const HomeIntroWrap = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px 20px 150px;
+  padding: 70px 20px;
   color: #000;
   text-align: center;
   font-family: 'Press Start 2P', cursive;
   line-height: 2em;
+  @media (min-width: 600px) {
+    padding: 100px 20px;
+  }
+  @media (min-width: 768px) {
+    padding: 200px 20px;
+  }
   h2 {
     font-size: 40px;
     text-transform: uppercase;
@@ -20,6 +27,9 @@ const HomeIntroWrap = styled.section`
     letter-spacing: 2px;
     word-spacing: 10px;
     margin-bottom: 70px;
+    @media (min-width: 768px) {
+      font-size: 70px;
+    }
   }
   .svgcolor-up {
     position: absolute;
@@ -29,12 +39,21 @@ const HomeIntroWrap = styled.section`
 `;
 
 const HomeIntro = props => {
+  const colorTheme = props.colorTheme;
   return (
-    <HomeIntroWrap className={props.class} id={props.id}>
+    <HomeIntroWrap
+      style={{
+        background: 'black',
+        color: colorTheme.highLight.color
+      }}
+      className={props.class}
+      id={props.id}
+    >
       <h2>{props.heading}</h2>
       {console.log(props.content)}
       {/* <div dangerouslySetInnerHTML={{ __html: props.content }} /> */}
       <TextAnimation text={props.content} />
+      <RunningMan />
 
       {/* <svg
         preserveAspectRatio="none"

@@ -5,9 +5,10 @@ const WelcomeWrap = styled.section`
   position: relative;
   font-family: monospace;
   font-size: 18px;
-  padding: 200px 0;
+  padding: 100px 0;
   @media (min-width: 768px) {
     font-size: 22px;
+    padding: 200px 0;
   }
   .welcome-content {
     padding: 20px;
@@ -40,7 +41,7 @@ const HomeWelcome = props => {
       className={props.class}
       id={props.id}
     >
-      <svg
+      {/* <svg
         preserveAspectRatio="none"
         viewBox="0 0 100 102"
         height="120"
@@ -50,14 +51,14 @@ const HomeWelcome = props => {
         className="svgcolor"
       >
         <path d="M0 0 L50 100 L100 0 Z" fill="#fff" stroke="#fff" />
-      </svg>
+      </svg> */}
 
       <div
         style={colorTheme.pageLink}
         className="welcome-content"
         dangerouslySetInnerHTML={{ __html: props.content }}
       />
-      <svg
+      {/* <svg
         preserveAspectRatio="none"
         viewBox="0 0 100 102"
         height="120"
@@ -67,7 +68,7 @@ const HomeWelcome = props => {
         className="svgcolor-2"
       >
         <path d="M0 0 L50 100 L100 0 Z" fill="#fff" stroke="#fff" />
-      </svg>
+      </svg> */}
       {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
     </WelcomeWrap>
   );

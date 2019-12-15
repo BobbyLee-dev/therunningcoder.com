@@ -34,7 +34,7 @@ const TextAnimation = ({ text }) => {
         delay: i * 0.02,
         yoyo: true,
         repeat: -1,
-        repeatDelay: 7
+        repeatDelay: 4
       });
     });
   }, []);
@@ -54,7 +54,7 @@ const TextAnimation = ({ text }) => {
           width: '100%',
           left: '0',
           right: '0',
-          // bottom: '-250px',
+          padding: '0 20px',
           zIndex: '20'
         }}
         ref={test}

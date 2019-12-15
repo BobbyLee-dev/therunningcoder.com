@@ -55,7 +55,13 @@ const Home = ({ data }) => {
 
         switch (typeName) {
           case 'WPGraphQL_Page_Homesections_Sections_Intro':
-            return <HomeIntro key={section.id} {...section} />;
+            return (
+              <HomeIntro
+                colorTheme={randomTheme}
+                key={section.id}
+                {...section}
+              />
+            );
           case 'WPGraphQL_Page_Homesections_Sections_Welcome':
             return (
               <HomeWelcome
