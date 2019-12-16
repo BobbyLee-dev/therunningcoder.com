@@ -50,7 +50,6 @@ const HomeIntro = props => {
       id={props.id}
     >
       <h2>{props.heading}</h2>
-      {console.log(props.content)}
       {/* <div dangerouslySetInnerHTML={{ __html: props.content }} /> */}
       <TextAnimation text={props.content} />
       <RunningMan

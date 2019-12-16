@@ -652,3 +652,11 @@ section.content {
     padding-right: calc(20px + (50% - (1240px / 2)));
   }
 }
+
+/* .button {
+  background: linear-gradient(45deg, #cc1d5e, #162838);
+  border-radius: 25px;
+  padding: 12px 30px;
+  color: #fff !important;
+  text-decoration: none;
+} */

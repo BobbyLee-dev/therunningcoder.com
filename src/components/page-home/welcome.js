@@ -17,7 +17,6 @@ const WelcomeWrap = styled.section`
     text-align: center;
     line-height: 2em;
     a {
-      display: block;
       text-decoration: none;
       color: #fff;
       z-index: 30;
@@ -63,6 +62,7 @@ const HomeWelcome = props => {
         className="welcome-content"
         dangerouslySetInnerHTML={{ __html: props.content }}
       />
+
       {/* <svg
         preserveAspectRatio="none"
         viewBox="0 0 100 102"

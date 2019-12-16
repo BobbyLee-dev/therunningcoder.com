@@ -9,9 +9,9 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import Header from './header/header';
+import Header from '../header/header';
 import './layout.css';
-import useSiteMetadata from '../hooks/use-sitemetadata';
+import useSiteMetadata from '../../hooks/use-sitemetadata';
 
 const Layout = ({ children, colorTheme }) => {
   const { title } = useSiteMetadata();

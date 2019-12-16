@@ -1,14 +1,12 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
-import HomeIntro from '../components/home-sections/intro';
-import RecentPost from '../components/home-sections/recent-post';
-import RecentProject from '../components/home-sections/recent-project';
-import HomeWelcome from '../components/home-sections/welcome';
-import HomeAbout from '../components/home-sections/about';
+import RecentPost from '../components/page-home/recent-post';
+import RecentProject from '../components/page-home/recent-project';
+import HomeWelcome from '../components/page-home/welcome';
 import Theme from '../components/themeColors';
 
 export const pageQuery = graphql`
@@ -18,20 +16,8 @@ export const pageQuery = graphql`
         homeSections {
           sections {
             __typename
-            ... on WPGraphQL_Page_Homesections_Sections_Intro {
-              id
-              class
-              heading
-              content
-              fieldGroupName
-            }
+
             ... on WPGraphQL_Page_Homesections_Sections_Welcome {
-              id
-              class
-              content
-              fieldGroupName
-            }
-            ... on WPGraphQL_Page_Homesections_Sections_About {
               id
               class
               content
@@ -47,6 +33,8 @@ export const pageQuery = graphql`
 const Home = ({ data }) => {
   const sections = data.wpgraphql.pageBy.homeSections.sections;
   const randomTheme = Theme();
+  console.log(randomTheme);
+
   return (
     <Layout colorTheme={randomTheme}>
       <SEO title="Home" />
@@ -54,14 +42,6 @@ const Home = ({ data }) => {
         const typeName = section.__typename;
 
         switch (typeName) {
-          case 'WPGraphQL_Page_Homesections_Sections_Intro':
-            return (
-              <HomeIntro
-                colorTheme={randomTheme}
-                key={section.id}
-                {...section}
-              />
-            );
           case 'WPGraphQL_Page_Homesections_Sections_Welcome':
             return (
               <HomeWelcome
@@ -70,17 +50,19 @@ const Home = ({ data }) => {
                 {...section}
               />
             );
-          case 'WPGraphQL_Page_Homesections_Sections_About':
-            return <HomeAbout key={section.id} {...section} />;
+
           default:
             return <p>You done busted it.</p>;
         }
       })}
-      <section>
-        <h2>Most Recent Project</h2>
+      <section className="content">
+        <h2>Recent Projects</h2>
         <RecentProject />
+        <Link className="button" to="/projects">
+          All Projects
+        </Link>
       </section>
-      <section>
+      <section className="content">
         <h2>Most Recent Post</h2>
         <RecentPost />
       </section>

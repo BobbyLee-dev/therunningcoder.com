@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import ProjectPreview from '../components/project-preview';
 import useProjects from '../hooks/use-projects';
