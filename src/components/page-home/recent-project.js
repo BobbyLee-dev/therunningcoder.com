@@ -8,7 +8,6 @@ const ProjectsWrap = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   .single-project {
-    border: solid;
     width: 300px;
     padding: 20px;
     margin: 10px;

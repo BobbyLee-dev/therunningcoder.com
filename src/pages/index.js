@@ -62,7 +62,7 @@ const Home = ({ data }) => {
         </Link>
       </section>
       <section className="content">
-        <h2>Most Recent Post</h2>
+        <h2>Recent Posts</h2>
         <RecentPost />
       </section>
 
