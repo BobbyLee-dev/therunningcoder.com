@@ -33,7 +33,6 @@ export const pageQuery = graphql`
 const Home = ({ data }) => {
   const sections = data.wpgraphql.pageBy.homeSections.sections;
   const randomTheme = Theme();
-  console.log(randomTheme);
 
   return (
     <Layout colorTheme={randomTheme}>

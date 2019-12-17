@@ -45,6 +45,17 @@ module.exports = {
         // refetchInterval: 60
       }
     }
+    // {
+    //   resolve: 'gatsby-wpgraphql-inline-images',
+    //   options: {
+    //     wordPressUrl: 'https://sapphireapi.com/therunningcoder/',
+    //     uploadsUrl:
+    //       'https://sapphireapi.com/therunningcoder/wp-content/uploads/',
+    //     processPostTypes: ['Page', 'Post', 'my_projects'],
+    //     graphqlTypeName: 'WPGraphQL',
+    //     generateWebp: true
+    //   }
+    // }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
