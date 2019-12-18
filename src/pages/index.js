@@ -13,17 +13,9 @@ export const pageQuery = graphql`
   {
     wpgraphql {
       pageBy(uri: "home") {
-        homeSections {
-          sections {
-            __typename
-
-            ... on WPGraphQL_Page_Homesections_Sections_Welcome {
-              id
-              class
-              content
-              fieldGroupName
-            }
-          }
+        homePage {
+          welcome
+          fieldGroupName
         }
       }
     }
@@ -31,29 +23,13 @@ export const pageQuery = graphql`
 `;
 
 const Home = ({ data }) => {
-  const sections = data.wpgraphql.pageBy.homeSections.sections;
+  const sections = data.wpgraphql.pageBy.homePage;
   const randomTheme = Theme();
 
   return (
     <Layout colorTheme={randomTheme}>
       <SEO title="Home" />
-      {sections.map(section => {
-        const typeName = section.__typename;
-
-        switch (typeName) {
-          case 'WPGraphQL_Page_Homesections_Sections_Welcome':
-            return (
-              <HomeWelcome
-                colorTheme={randomTheme}
-                key={section.id}
-                {...section}
-              />
-            );
-
-          default:
-            return <p>You done busted it.</p>;
-        }
-      })}
+      <HomeWelcome content={sections.welcome} colorTheme={randomTheme} />
       <section className="content">
         <h2>Recent Projects</h2>
         <RecentProject />
@@ -66,9 +42,12 @@ const Home = ({ data }) => {
         <RecentPost />
       </section>
 
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+      <section
+        className="content"
+        style={{ maxWidth: `300px`, marginBottom: `1.45rem`, margin: 'auto' }}
+      >
         <Image />
-      </div>
+      </section>
     </Layout>
   );
 };

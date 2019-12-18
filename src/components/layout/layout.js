@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import Header from '../header/header';
 import './layout.css';
 import useSiteMetadata from '../../hooks/use-sitemetadata';
+import Footer from '../footer/footer';
 
 const Layout = ({ children, colorTheme }) => {
   const { title } = useSiteMetadata();
@@ -21,12 +22,13 @@ const Layout = ({ children, colorTheme }) => {
       <Header colorTheme={colorTheme} siteTitle={title} />
       <div style={{}}>
         <main>{children}</main>
-        <footer>
+        <section className="content">
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        </section>
       </div>
+      <Footer data={children} colorTheme={colorTheme} />
     </>
   );
 };
