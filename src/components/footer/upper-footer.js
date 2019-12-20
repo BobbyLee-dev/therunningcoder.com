@@ -68,6 +68,7 @@ const UpperFooter = ({ colorTheme }) => {
       >
         <input type="hidden" name="footer-contact" value="contact" />
         <label style={borderStyle}>
+          test
           <input placeholder="Name" type="text" name="name" required />
         </label>
         <label style={borderStyle}>
