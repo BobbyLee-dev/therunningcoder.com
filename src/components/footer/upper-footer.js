@@ -60,7 +60,13 @@ const UpperFooter = ({ colorTheme }) => {
         hear from you!
       </p>
 
-      <ContactForm name="footer-contact" data-netlify="true">
+      <ContactForm
+        name="footer-contact"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="footer-contact" value="contact" />
         <label style={borderStyle}>
           <input placeholder="Name" type="text" name="name" required />
         </label>
