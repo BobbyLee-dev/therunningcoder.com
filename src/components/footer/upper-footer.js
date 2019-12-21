@@ -1,7 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import { redirectTo } from '@reach/router';
 
 const ContactForm = styled.form`
   width: 100%;
@@ -66,7 +64,7 @@ const UpperFooter = ({ colorTheme }) => {
         data-netlify="true"
         data-netlify-honeypot="bot-field"
       >
-        <input type="hidden" name="footer-contact" value="contact" />
+        <input type="hidden" name="bot-field" />
         <label style={borderStyle}>
           test
           <input placeholder="Name" type="text" name="name" required />

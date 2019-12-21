@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{ilfQ:function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),r=a.n(n),l=a("Bl7J"),o=a("vrFN"),c=a("lmkC");t.default=function(){var e=Object(c.a)();return r.a.createElement(l.a,{colorTheme:e},r.a.createElement(o.a,{title:"About Me"}),r.a.createElement("h1",null,"Hi from the AboutMe page"))}}}]);
-//# sourceMappingURL=component---src-pages-about-about-me-js-d1316f16e4bcc3661f23.js.map
