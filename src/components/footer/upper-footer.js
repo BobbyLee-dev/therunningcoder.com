@@ -20,9 +20,13 @@ const ContactForm = styled.form`
       font-size: 16px;
       color: #fff;
       margin-bottom: 5px;
+      border-radius: 5px;
       &::placeholder,
       &::-webkit-input-placeholder {
         color: #fff;
+      }
+      &:-internal-autofill-selected {
+        background-color: rgba(255, 255, 255, 0) !important;
       }
     }
     textarea {
@@ -34,6 +38,7 @@ const ContactForm = styled.form`
       border: none;
       font-size: 16px;
       color: #fff;
+      border-radius: 5px;
       &::placeholder,
       &::-webkit-input-placeholder {
         color: #fff;
@@ -44,14 +49,20 @@ const ContactForm = styled.form`
     width: fit-content;
     padding: 5px 20px;
     align-self: flex-end;
+    background: none;
+    border-radius: 5px;
   }
 `;
 
 const UpperFooter = ({ colorTheme }) => {
   const borderStyle = { border: `1px solid ${colorTheme.highLight.color}` };
+  const submitBtnColors = {
+    border: `1px solid ${colorTheme.highLight.color}`,
+    color: `${colorTheme.pageLinkHover.color}`
+  };
 
   return (
-    <div>
+    <section className="content">
       <h2 style={colorTheme.title}>Contact</h2>
       <p style={colorTheme.pageLink}>
         Have an Idea, question or just want to say Hi? Get in touch, I'd love to
@@ -65,19 +76,37 @@ const UpperFooter = ({ colorTheme }) => {
         data-netlify-honeypot="bot-field"
       >
         <input type="hidden" name="bot-field" />
-        <label style={borderStyle}>
-          test
-          <input placeholder="Name" type="text" name="name" required />
+        <label>
+          <input
+            style={borderStyle}
+            placeholder="Name"
+            type="text"
+            name="name"
+            required
+          />
         </label>
-        <label style={borderStyle}>
-          <input placeholder="Email" type="email" name="email" required />
+        <label>
+          <input
+            style={borderStyle}
+            placeholder="Email"
+            type="email"
+            name="email"
+            required
+          />
         </label>
-        <label style={borderStyle}>
-          <textarea placeholder="Message" name="message" required />
+        <label>
+          <textarea
+            style={borderStyle}
+            placeholder="Message"
+            name="message"
+            required
+          />
         </label>
-        <button type="submit">Send</button>
+        <button style={submitBtnColors} type="submit">
+          Send
+        </button>
       </ContactForm>
-    </div>
+    </section>
   );
 };
 

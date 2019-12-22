@@ -5,7 +5,7 @@ const speed = `${1}s`;
 const halfSpeed = `${0.5}s`;
 
 const RunningArea = styled.div`
-  margin-top: 200px;
+  margin-bottom: 40px;
   @keyframes robot {
     0%,
     50%,
@@ -185,54 +185,29 @@ const RunningMan = ({ color, shadowColor }) => {
   return (
     <RunningArea>
       <Robot>
-        <div
-          style={{ background: 'none', border: `solid 1px ${color}` }}
-          className="head"
-        ></div>
-        <div
-          style={{ background: 'none', border: `solid 1px ${color}` }}
-          className="arm l"
-        >
-          <div style={{ background: 'none', border: `solid 1px ${color}` }}>
-            <div
-              style={{ background: 'none', border: `solid 1px ${color}` }}
-            ></div>
+        <div style={{ border: `solid 1px ${color}` }} className="head"></div>
+        <div style={{ border: `solid 1px ${color}` }} className="arm l">
+          <div style={{ border: `solid 1px ${color}` }}>
+            <div style={{ border: `solid 1px ${color}` }}></div>
           </div>
         </div>
-        <div
-          style={{ background: 'none', border: `solid 1px ${color}` }}
-          className="leg l"
-        >
-          <div style={{ background: 'none', border: `solid 1px ${color}` }}>
-            <div
-              style={{ background: 'none', border: `solid 1px ${color}` }}
-            ></div>
+        <div style={{ border: `solid 1px ${color}` }} className="leg l">
+          <div style={{ border: `solid 1px ${color}` }}>
+            <div style={{ border: `solid 1px ${color}` }}></div>
           </div>
         </div>
-        <div
-          style={{ background: 'none', border: `solid 1px ${color}` }}
-          className="leg r"
-        >
-          <div style={{ background: 'none', border: `solid 1px ${color}` }}>
-            <div
-              style={{ background: 'none', border: `solid 1px ${color}` }}
-            ></div>
+        <div style={{ border: `solid 1px ${color}` }} className="leg r">
+          <div style={{ border: `solid 1px ${color}` }}>
+            <div style={{ border: `solid 1px ${color}` }}></div>
           </div>
         </div>
-        <div
-          style={{ background: 'none', border: `solid 1px ${color}` }}
-          className="arm r"
-        >
-          <div style={{ background: 'none', border: `solid 1px ${color}` }}>
-            <div
-              style={{ background: 'none', border: `solid 1px ${color}` }}
-            ></div>
+        <div style={{ border: `solid 1px ${color}` }} className="arm r">
+          <div style={{ border: `solid 1px ${color}` }}>
+            <div style={{ border: `solid 1px ${color}` }}></div>
           </div>
         </div>
       </Robot>
-      <Shadow
-        style={{ background: 'none', border: `solid 1px ${shadowColor}` }}
-      />
+      <Shadow style={{ border: `solid 1px ${shadowColor}` }} />
     </RunningArea>
   );
 };

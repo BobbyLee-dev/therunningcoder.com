@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import UpperFooter from './upper-footer';
+import LowerFooter from './lower-footer';
 
-const FooterWrap = styled.section`
-  min-height: 400px;
-`;
+const FooterWrap = styled.section``;
 
 const Footer = ({ colorTheme }) => {
   return (
-    <FooterWrap className="content" style={colorTheme.background}>
+    <FooterWrap style={colorTheme.background}>
       <UpperFooter colorTheme={colorTheme} />
-      {/* <LowerFooter/> */}
+      <LowerFooter colorTheme={colorTheme} />
     </FooterWrap>
   );
 };
