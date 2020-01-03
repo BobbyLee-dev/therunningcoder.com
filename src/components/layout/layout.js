@@ -6,9 +6,7 @@
  */
 
 import React from 'react';
-
 import PropTypes from 'prop-types';
-
 import Header from '../header/header';
 import './layout.css';
 import useSiteMetadata from '../../hooks/use-sitemetadata';
@@ -20,14 +18,7 @@ const Layout = ({ children, colorTheme }) => {
   return (
     <>
       <Header colorTheme={colorTheme} siteTitle={title} />
-      <div style={{}}>
-        <main>{children}</main>
-        <section className="content">
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </section>
-      </div>
+      <main>{children}</main>
       <Footer data={children} colorTheme={colorTheme} />
     </>
   );

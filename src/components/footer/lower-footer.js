@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { FaLinkedinIn, FaGithub, FaCodepen, FaList } from 'react-icons/fa';
 import RunningMan from '../animations/running-man';

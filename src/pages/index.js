@@ -8,6 +8,25 @@ import RecentPost from '../components/page-home/recent-post';
 import RecentProject from '../components/page-home/recent-project';
 import HomeWelcome from '../components/page-home/welcome';
 import Theme from '../components/themeColors';
+import Wapuu from '../components/wapuu';
+import styled from 'styled-components';
+
+const BuiltWith = styled.section`
+  /* max-width: 300px; */
+  margin: 0 auto 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  > div {
+    width: 300px;
+    max-width: 100%;
+    margin: 10px;
+  }
+  .built-text {
+    width: 100%;
+  }
+`;
 
 export const pageQuery = graphql`
   {
@@ -41,13 +60,13 @@ const Home = ({ data }) => {
         <h2>Recent Posts</h2>
         <RecentPost />
       </section>
-
-      <section
-        className="content"
-        style={{ maxWidth: `300px`, marginBottom: `1.45rem`, margin: 'auto' }}
-      >
+      <BuiltWith className="content">
+        <div className="built-text">
+          This site is build with Gatasby and WordPress.
+        </div>
         <Image />
-      </section>
+        <Wapuu />
+      </BuiltWith>
     </Layout>
   );
 };
