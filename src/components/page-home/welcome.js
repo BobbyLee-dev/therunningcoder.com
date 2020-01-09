@@ -8,11 +8,11 @@ const WelcomeWrap = styled.section`
   padding: 100px 0;
   @media (min-width: 768px) {
     font-size: 22px;
-    padding: 200px 0;
+    padding: 150px 0;
   }
   .welcome-content {
     padding: 20px;
-    max-width: 900px;
+    max-width: 1000px;
     margin: auto;
     text-align: center;
     line-height: 2em;

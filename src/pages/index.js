@@ -10,6 +10,7 @@ import HomeWelcome from '../components/page-home/welcome';
 import Theme from '../components/themeColors';
 import Wapuu from '../components/wapuu';
 import styled from 'styled-components';
+import HomeAbout from '../components/page-home/home-about';
 
 const BuiltWith = styled.section`
   /* max-width: 300px; */
@@ -34,7 +35,7 @@ export const pageQuery = graphql`
       pageBy(uri: "home") {
         homePage {
           welcome
-          fieldGroupName
+          homeAbout
         }
       }
     }
@@ -49,6 +50,7 @@ const Home = ({ data }) => {
     <Layout colorTheme={randomTheme}>
       <SEO title="Home" />
       <HomeWelcome content={sections.welcome} colorTheme={randomTheme} />
+      <HomeAbout content={sections.homeAbout} colorTheme={randomTheme} />
       <section className="content">
         <h2>Recent Projects</h2>
         <RecentProject />
