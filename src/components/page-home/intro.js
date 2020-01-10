@@ -36,6 +36,28 @@ const HomeIntroWrap = styled.section`
     bottom: 0;
     transform: scaleY(-1);
   }
+  .grid {
+    top: -400px;
+    bottom: -400px;
+    left: -400px;
+    right: -400px;
+    position: absolute;
+    background-color: $color-spaaaace;
+    background-image: linear-gradient($color-neonpink 1px, transparent 2px),
+      linear-gradient(90deg, $color-neonpink 1px, transparent 2px);
+    background-size: 3% 3%, 3% 3%;
+    backround-position: 0 0, 0 0;
+
+    transform: perspective(300px) rotateX(80deg);
+  }
+  @keyframes throughSpace {
+    0% {
+      transform: perspective(300px) rotateX(80deg) translateY(0%);
+    }
+    100% {
+      transform: perspective(300px) rotateX(80deg) translateY(3%);
+    }
+  }
 `;
 
 const HomeIntro = props => {

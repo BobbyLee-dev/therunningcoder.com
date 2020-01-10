@@ -17,8 +17,9 @@ const BuiltWith = styled.section`
   margin: 0 auto 2em;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
+  font-size: 1.5em;
   > div {
     width: 300px;
     max-width: 100%;
@@ -26,6 +27,7 @@ const BuiltWith = styled.section`
   }
   .built-text {
     width: 100%;
+    margin-bottom: 40px;
   }
 `;
 
