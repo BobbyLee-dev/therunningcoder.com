@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const HomeWelcome = props => {
   const colorTheme = props.colorTheme;
+  console.log(colorTheme);
 
   const WelcomeWrap = styled.section`
     position: relative;
@@ -69,7 +70,6 @@ const HomeWelcome = props => {
       id={props.id}
     >
       <div className="grid" />
-
       <div
         style={colorTheme.pageLink}
         className="welcome-content"
