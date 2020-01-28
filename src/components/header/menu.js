@@ -228,37 +228,39 @@ const MainMenu = ({ style, themeColor }) => {
                   >
                     {item.label}
                   </Link>
-                  {item.childItems.nodes.length > 0 && (
-                    <SubMenuButton
-                      setSubMenuToggle={setSubMenuToggle}
-                      isSubMenuToggled={isSubMenuToggled}
-                    />
-                  )}
 
                   {item.childItems.nodes.length > 0 && (
-                    <animated.ul
-                      style={Object.assign(
-                        revealSubMenu,
-                        themeColor.background,
-                        { borderTop: `2px solid ${themeColor.highLight.color}` }
-                      )}
-                    >
-                      {item.childItems.nodes.map(childItem => {
-                        return (
-                          <li key={childItem.id}>
-                            <Link
-                              style={themeColor.pageLink}
-                              to={childItem.url.replace(
-                                'https://sapphireapi.com/therunningcoder',
-                                ''
-                              )}
-                            >
-                              {childItem.label}
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </animated.ul>
+                    <React.Fragment>
+                      <SubMenuButton
+                        setSubMenuToggle={setSubMenuToggle}
+                        isSubMenuToggled={isSubMenuToggled}
+                      />
+                      <animated.ul
+                        style={Object.assign(
+                          revealSubMenu,
+                          themeColor.background,
+                          {
+                            borderTop: `2px solid ${themeColor.highLight.color}`
+                          }
+                        )}
+                      >
+                        {item.childItems.nodes.map(childItem => {
+                          return (
+                            <li key={childItem.id}>
+                              <Link
+                                style={themeColor.pageLink}
+                                to={childItem.url.replace(
+                                  'https://sapphireapi.com/therunningcoder',
+                                  ''
+                                )}
+                              >
+                                {childItem.label}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </animated.ul>
+                    </React.Fragment>
                   )}
                 </li>
               </React.Fragment>

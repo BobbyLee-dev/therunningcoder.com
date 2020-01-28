@@ -52,7 +52,7 @@ const SubMenuToggle = styled.button`
   }
 `;
 
-const SubMenuButton = ({ setSubMenuToggle, isSubMenuToggled }) => {
+const SubMenuButton = ({ setSubMenuToggle, isSubMenuToggled, toggle }) => {
   const [isSubMenuOpen, setSubMenuOpen] = useState(false);
 
   const openCode = useSpring({
@@ -78,7 +78,7 @@ const SubMenuButton = ({ setSubMenuToggle, isSubMenuToggled }) => {
     <>
       <SubMenuToggle
         isSubMenuOpen={isSubMenuOpen}
-        onClick={() => {
+        onClick={e => {
           setSubMenuToggle(!isSubMenuToggled);
           setSubMenuOpen(!isSubMenuOpen);
         }}
