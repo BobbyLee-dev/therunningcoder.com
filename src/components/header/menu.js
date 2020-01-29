@@ -2,7 +2,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
-import SubMenuButton from './sub-menu-button';
+import SubMenu from './sub-menu';
 
 const mobileNavBreakPoint = `890px`;
 const mobileNavMaxBreakPoint = `889px`;
@@ -75,11 +75,9 @@ const Menu = styled.ul`
         background: #122738;
         position: absolute;
         margin: 0;
+        width: 100%;
         border-top: 2px solid rgb(255, 120, 248);
-        right: -120px;
-        @media (min-width: 600px) {
-          right: -175px;
-        }
+        right: -120%;
         @media (min-width: ${mobileNavBreakPoint}) {
           top: 48px;
           right: 0;
@@ -159,11 +157,11 @@ const MainMenu = ({ style, themeColor }) => {
   const navItemObjects = mainNav.wpgraphql.menus.nodes[0].menuItems.nodes;
 
   // Sub Menu
-  const [isSubMenuToggled, setSubMenuToggle] = useState(false);
-  const revealSubMenu = useSpring({
-    display: isSubMenuToggled ? 'block' : 'none',
-    opacity: isSubMenuToggled ? '1' : '0'
-  });
+  // const [isSubMenuToggled, setSubMenuToggle] = useState(false);
+  // const revealSubMenu = useSpring({
+  //   display: isSubMenuToggled ? 'block' : 'none',
+  //   opacity: isSubMenuToggled ? '1' : '0'
+  // });
 
   // Mobile Nav
   const [isNavOpen, setNavOpen] = useState(false);
@@ -230,37 +228,38 @@ const MainMenu = ({ style, themeColor }) => {
                   </Link>
 
                   {item.childItems.nodes.length > 0 && (
-                    <React.Fragment>
-                      <SubMenuButton
-                        setSubMenuToggle={setSubMenuToggle}
-                        isSubMenuToggled={isSubMenuToggled}
-                      />
-                      <animated.ul
-                        style={Object.assign(
-                          revealSubMenu,
-                          themeColor.background,
-                          {
-                            borderTop: `2px solid ${themeColor.highLight.color}`
-                          }
-                        )}
-                      >
-                        {item.childItems.nodes.map(childItem => {
-                          return (
-                            <li key={childItem.id}>
-                              <Link
-                                style={themeColor.pageLink}
-                                to={childItem.url.replace(
-                                  'https://sapphireapi.com/therunningcoder',
-                                  ''
-                                )}
-                              >
-                                {childItem.label}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </animated.ul>
-                    </React.Fragment>
+                    // <React.Fragment>
+                    //   <SubMenuButton
+                    //     setSubMenuToggle={setSubMenuToggle}
+                    //     isSubMenuToggled={isSubMenuToggled}
+                    //   />
+                    //   <animated.ul
+                    //     style={Object.assign(
+                    //       revealSubMenu,
+                    //       themeColor.background,
+                    //       {
+                    //         borderTop: `2px solid ${themeColor.highLight.color}`
+                    //       }
+                    //     )}
+                    //   >
+                    //     {item.childItems.nodes.map(childItem => {
+                    //       return (
+                    //         <li key={childItem.id}>
+                    //           <Link
+                    //             style={themeColor.pageLink}
+                    //             to={childItem.url.replace(
+                    //               'https://sapphireapi.com/therunningcoder',
+                    //               ''
+                    //             )}
+                    //           >
+                    //             {childItem.label}
+                    //           </Link>
+                    //         </li>
+                    //       );
+                    //     })}
+                    //   </animated.ul>
+                    // </React.Fragment>
+                    <SubMenu item={item} themeColor={themeColor} />
                   )}
                 </li>
               </React.Fragment>

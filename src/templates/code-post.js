@@ -22,7 +22,7 @@ export const query = graphql`
   }
 `;
 
-const PostTemplate = ({
+const CodePostTemplate = ({
   data: {
     wpgraphql: { post }
   }
@@ -32,6 +32,7 @@ const PostTemplate = ({
     <Layout colorTheme={randomTheme}>
       <SEO title="Home" />
       <h1>{post.title}</h1>
+      <h2>test</h2>
       <div
         className="content"
         dangerouslySetInnerHTML={{ __html: post.content }}
@@ -42,4 +43,4 @@ const PostTemplate = ({
   );
 };
 
-export default PostTemplate;
+export default CodePostTemplate;

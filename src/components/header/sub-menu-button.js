@@ -1,94 +1,96 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
+// this was combined with sub-menu.js - can be used again but child of sub-menu now.
 
-const mobileNavMaxBreakPoint = `889px`;
+// import React, { useState } from 'react';
+// import styled from 'styled-components';
+// import { useSpring, animated } from 'react-spring';
 
-const SubMenuToggle = styled.button`
-  @media (max-width: ${mobileNavMaxBreakPoint}) {
-    margin-left: 20px;
-  }
-  margin-right: 15px;
-  margin-left: 10px;
-  margin-bottom: 1px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: ${({ isSubMenuOpen }) =>
-    isSubMenuOpen ? 'flex-start' : 'flex-end'};
-  width: auto;
-  height: auto;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+// const mobileNavMaxBreakPoint = `889px`;
 
-  &:focus {
-    outline: none;
-  }
+// const SubMenuToggle = styled.button`
+//   @media (max-width: ${mobileNavMaxBreakPoint}) {
+//     margin-left: 20px;
+//   }
+//   margin-right: 15px;
+//   margin-left: 10px;
+//   margin-bottom: 1px;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: ${({ isSubMenuOpen }) =>
+//     isSubMenuOpen ? 'flex-start' : 'flex-end'};
+//   width: auto;
+//   height: auto;
+//   background: transparent;
+//   border: none;
+//   cursor: pointer;
+//   padding: 0;
 
-  div {
-    width: 10px;
-    height: 10px;
+//   &:focus {
+//     outline: none;
+//   }
 
-    position: relative;
-    transform-origin: 1px;
-    &.open-code {
-      border-top: 2px solid #fff;
-      border-left: 2px solid #fff;
-      transform: rotate(-45deg) skewY(15deg);
-    }
-    &.slash {
-      width: 2px;
-      height: 15px;
-      background: #fff;
-      transform: rotate(20deg);
-    }
-    &.close-code {
-      border-right: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-      transform: rotate(-45deg) skewY(15deg);
-    }
-  }
-`;
+//   div {
+//     width: 10px;
+//     height: 10px;
 
-const SubMenuButton = ({ setSubMenuToggle, isSubMenuToggled, toggle }) => {
-  const [isSubMenuOpen, setSubMenuOpen] = useState(false);
+//     position: relative;
+//     transform-origin: 1px;
+//     &.open-code {
+//       border-top: 2px solid #fff;
+//       border-left: 2px solid #fff;
+//       transform: rotate(-45deg) skewY(15deg);
+//     }
+//     &.slash {
+//       width: 2px;
+//       height: 15px;
+//       background: #fff;
+//       transform: rotate(20deg);
+//     }
+//     &.close-code {
+//       border-right: 2px solid #fff;
+//       border-bottom: 2px solid #fff;
+//       transform: rotate(-45deg) skewY(15deg);
+//     }
+//   }
+// `;
 
-  const openCode = useSpring({
-    transform: isSubMenuOpen
-      ? 'rotate(-225deg) skewY(0deg)'
-      : 'rotate(-45deg) skewY(15deg)'
-  });
+// const SubMenuButton = ({ setSubMenuToggle, isSubMenuToggled }) => {
+//   const [isSubMenuOpen, setSubMenuOpen] = useState(false);
 
-  const slash = useSpring({
-    transform: isSubMenuOpen
-      ? 'translateY(-20px) rotate(20deg)'
-      : 'translateY(0px) rotate(20deg)',
-    opacity: isSubMenuOpen ? '0' : '1'
-  });
+//   const openCode = useSpring({
+//     transform: isSubMenuOpen
+//       ? 'rotate(-225deg) skewY(0deg)'
+//       : 'rotate(-45deg) skewY(15deg)'
+//   });
 
-  const closeCode = useSpring({
-    transform: isSubMenuOpen
-      ? 'rotate(135deg) skewY(0deg)'
-      : 'rotate(-45deg) skewY(15deg)'
-  });
+//   const slash = useSpring({
+//     transform: isSubMenuOpen
+//       ? 'translateY(-20px) rotate(20deg)'
+//       : 'translateY(0px) rotate(20deg)',
+//     opacity: isSubMenuOpen ? '0' : '1'
+//   });
 
-  return (
-    <>
-      <SubMenuToggle
-        isSubMenuOpen={isSubMenuOpen}
-        onClick={e => {
-          setSubMenuToggle(!isSubMenuToggled);
-          setSubMenuOpen(!isSubMenuOpen);
-        }}
-      >
-        <animated.div className="open-code" style={openCode} />
-        <animated.div className="slash" style={slash} />
-        <animated.div className="close-code" style={closeCode} />
-      </SubMenuToggle>
-    </>
-  );
-};
+//   const closeCode = useSpring({
+//     transform: isSubMenuOpen
+//       ? 'rotate(135deg) skewY(0deg)'
+//       : 'rotate(-45deg) skewY(15deg)'
+//   });
 
-export default SubMenuButton;
+//   return (
+//     <>
+//       <SubMenuToggle
+//         isSubMenuOpen={isSubMenuOpen}
+//         onClick={e => {
+//           setSubMenuToggle(!isSubMenuToggled);
+//           setSubMenuOpen(!isSubMenuOpen);
+//         }}
+//       >
+//         <animated.div className="open-code" style={openCode} />
+//         <animated.div className="slash" style={slash} />
+//         <animated.div className="close-code" style={closeCode} />
+//       </SubMenuToggle>
+//     </>
+//   );
+// };
+
+// export default SubMenuButton;

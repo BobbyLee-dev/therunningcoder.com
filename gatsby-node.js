@@ -78,14 +78,27 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panic('failed to create pages', result.errors);
   }
 
+  // All Posts.
   const posts = result.data.wpgraphql.posts.nodes;
-
   posts.forEach(post => {
     actions.createPage({
       path: 'blog/' + post.slug,
       component: require.resolve('./src/templates/post.js'),
       context: {
         slug: `/${'blog/' + post.slug}/`,
+        id: post.id
+      }
+    });
+  });
+
+  // Code Posts
+  const codePosts = result.data.wpgraphql.posts.nodes;
+  codePosts.forEach(post => {
+    actions.createPage({
+      path: 'blog/code/' + post.slug,
+      component: require.resolve('./src/templates/code-post.js'),
+      context: {
+        slug: `/${'blog/code/' + post.slug}/`,
         id: post.id
       }
     });
