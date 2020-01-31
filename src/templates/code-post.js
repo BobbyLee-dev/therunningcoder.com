@@ -33,11 +33,14 @@ const CodePostTemplate = ({
       <SEO title="Home" />
       <h1>{post.title}</h1>
       <h2>test</h2>
+
       <div
         className="content"
-        dangerouslySetInnerHTML={{ __html: post.content }}
+        dangerouslySetInnerHTML={{ __html: post.shortLongPost.shortVersion }}
       />
       <pre>{JSON.stringify(post, null, 2)}</pre>
+      <div>{post.shortLongPost.shortVersion}</div>
+
       <Link to="/blog">Back to Blog</Link>
     </Layout>
   );

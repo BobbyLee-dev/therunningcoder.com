@@ -7,6 +7,7 @@ const CodePreview = ({ post }) => {
       <h2>
         <Link to={post.slug}>{post.title}</Link>
       </h2>
+      <pre>{JSON.stringify(post, null, 2)}</pre>
       <div>{post.custonExcerpt}</div>
       <Link to={post.slug}>read this post &rarr;</Link>
     </article>
