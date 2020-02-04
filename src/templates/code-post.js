@@ -28,6 +28,8 @@ const CodePostTemplate = ({
   }
 }) => {
   const randomTheme = Theme();
+  console.log(post.shortLongPost.shortVersion.replace(/"/g, "'"));
+
   return (
     <Layout colorTheme={randomTheme}>
       <SEO title="Home" />
@@ -36,10 +38,12 @@ const CodePostTemplate = ({
 
       <div
         className="content"
-        dangerouslySetInnerHTML={{ __html: post.shortLongPost.shortVersion }}
+        dangerouslySetInnerHTML={{
+          __html: post.shortLongPost.shortVersion.replace(/"/g, "'")
+        }}
       />
       <pre>{JSON.stringify(post, null, 2)}</pre>
-      <div>{post.shortLongPost.shortVersion}</div>
+      {/* <div>{post.shortLongPost.shortVersion}</div> */}
 
       <Link to="/blog">Back to Blog</Link>
     </Layout>

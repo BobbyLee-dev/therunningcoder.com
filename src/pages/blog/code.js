@@ -8,6 +8,8 @@ import Theme from '../../components/themeColors';
 
 const Code = () => {
   const codePosts = useCodePosts();
+  // console.log(codePosts);
+
   const randomTheme = Theme();
   return (
     <Layout colorTheme={randomTheme}>
