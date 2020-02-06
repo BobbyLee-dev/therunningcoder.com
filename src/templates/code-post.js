@@ -54,12 +54,15 @@ const CodePostTemplate = ({
         />
       )}
 
-      <div
-        className="content"
-        dangerouslySetInnerHTML={{
-          __html: post.shortLongPost.shortVersion.replace(/"/g, "'")
-        }}
-      />
+      {post.shortLongPost.shortVersion && (
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{
+            __html: post.shortLongPost.shortVersion.replace(/"/g, "'")
+          }}
+        />
+      )}
+
       <pre>{JSON.stringify(post, null, 2)}</pre>
       {/* <div>{post.shortLongPost.shortVersion}</div> */}
 
