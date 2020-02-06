@@ -18,7 +18,6 @@ export const query = graphql`
           longVersion
           shortVersion
         }
-        id
         featuredImage {
           sourceUrl
           altText
@@ -46,12 +45,15 @@ const CodePostTemplate = ({
     <Layout colorTheme={randomTheme}>
       <SEO title="Home" />
       {console.log(post)}
+      {console.log('hi')}
       <h1>{post.title}</h1>
+      {post.featuredImage && (
+        <Img
+          alt="Featured Image"
+          fluid={post.featuredImage.imageFile.childImageSharp.fluid}
+        />
+      )}
 
-      <Img
-        alt={post.featuredImage.altText}
-        fluid={post.featuredImage.imageFile.childImageSharp.fluid}
-      />
       <div
         className="content"
         dangerouslySetInnerHTML={{
