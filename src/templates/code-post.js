@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
 
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
@@ -17,6 +18,18 @@ export const query = graphql`
           longVersion
           shortVersion
         }
+        id
+        featuredImage {
+          sourceUrl
+          altText
+          imageFile {
+            childImageSharp {
+              fluid(traceSVG: { color: "#f00e2e" }) {
+                ...GatsbyImageSharpFluid_tracedSVG
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -28,14 +41,17 @@ const CodePostTemplate = ({
   }
 }) => {
   const randomTheme = Theme();
-  console.log(post.shortLongPost.shortVersion.replace(/"/g, "'"));
 
   return (
     <Layout colorTheme={randomTheme}>
       <SEO title="Home" />
+      {console.log(post)}
       <h1>{post.title}</h1>
-      <h2>test</h2>
 
+      <Img
+        alt={post.featuredImage.altText}
+        fluid={post.featuredImage.imageFile.childImageSharp.fluid}
+      />
       <div
         className="content"
         dangerouslySetInnerHTML={{
@@ -45,7 +61,7 @@ const CodePostTemplate = ({
       <pre>{JSON.stringify(post, null, 2)}</pre>
       {/* <div>{post.shortLongPost.shortVersion}</div> */}
 
-      <Link to="/blog">Back to Blog</Link>
+      <Link to="/blog/code">Back to Code</Link>
     </Layout>
   );
 };

@@ -3,10 +3,6 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
 const CodePreview = ({ post }) => {
-  console.log('lol');
-
-  console.log(post);
-
   return (
     <article>
       {post.featuredImage && (
