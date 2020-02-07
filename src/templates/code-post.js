@@ -11,6 +11,11 @@ export const query = graphql`
     wpgraphql {
       post(id: $id) {
         slug
+        tags {
+          nodes {
+            name
+          }
+        }
         title
         content
         shortLongPost {
@@ -40,12 +45,12 @@ const CodePostTemplate = ({
   }
 }) => {
   const randomTheme = Theme();
+  console.log(post);
 
   return (
     <Layout colorTheme={randomTheme}>
       <SEO title="Home" />
       {console.log(post)}
-      {console.log('hi')}
       <h1>{post.title}</h1>
       {post.featuredImage && (
         <Img
@@ -54,16 +59,51 @@ const CodePostTemplate = ({
         />
       )}
 
+      {/* Links */}
       {post.shortLongPost.shortVersion && (
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{
-            __html: post.shortLongPost.shortVersion.replace(/"/g, "'")
-          }}
-        />
+        <>
+          <h2>Code</h2>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{
+              __html: post.shortLongPost.shortVersion.replace(/"/g, "'")
+            }}
+          />
+        </>
       )}
 
-      <pre>{JSON.stringify(post, null, 2)}</pre>
+      {/* Custom Excerpt */}
+      {post.shortLongPost.customExcerpt && (
+        <>
+          <h2>Description</h2>
+          <div
+            className="excerpt-wrap"
+            dangerouslySetInnerHTML={{
+              __html: post.shortLongPost.customExcerpt.replace(/"/g, "'")
+            }}
+          />
+        </>
+      )}
+
+      {/* Tags */}
+      {post.tags.nodes.length > 0 && (
+        <>
+          <h2>Tags</h2>
+
+          {post.tags.nodes.map(tag => {
+            return (
+              <div
+                className="tag"
+                dangerouslySetInnerHTML={{
+                  __html: tag.name
+                }}
+              />
+            );
+          })}
+        </>
+      )}
+
+      {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
       {/* <div>{post.shortLongPost.shortVersion}</div> */}
 
       <Link to="/blog/code">Back to Code</Link>
