@@ -10,7 +10,14 @@ export const query = graphql`
   query($id: ID!) {
     wpgraphql {
       post(id: $id) {
+        id
         slug
+        date
+        modified
+        author {
+          firstName
+          lastName
+        }
         tags {
           nodes {
             name
@@ -47,19 +54,50 @@ const CodePostTemplate = ({
   const randomTheme = Theme();
   console.log(post);
 
+  const hasAuthor = () => {
+    const firstName = post.author.firstName ? post.author.firstName : '';
+    const lastName = post.author.lastName ? post.author.lastName : '';
+
+    if (firstName || lastName) {
+      return (
+        <div className="author">
+          <div>Author: </div>
+          <div>
+            {firstName} {lastName}
+          </div>
+        </div>
+      );
+    }
+  };
+
   return (
     <Layout colorTheme={randomTheme}>
       <SEO title="Home" />
-      {console.log(post)}
+
       <h1>{post.title}</h1>
+
+      {/* ======== Image ======== */}
       {post.featuredImage && (
         <Img
           alt="Featured Image"
           fluid={post.featuredImage.imageFile.childImageSharp.fluid}
         />
       )}
+      {/* ======== End  Image ======== */}
 
-      {/* Links */}
+      {/* ======= Author ========= */}
+      {hasAuthor()}
+      {/* ======= End Author ========= */}
+
+      {/* ======= Date ======== */}
+      <div className="date-published">Published on: {post.date}</div>
+      {/* ======= End Date ======== */}
+
+      {/* ====== Last Modified ======= */}
+      <div className="date-published">Last Modified: {post.modified}</div>
+      {/* ====== Last Modified ======= */}
+
+      {/* ======== Links ======== */}
       {post.shortLongPost.shortVersion && (
         <>
           <h2>Code</h2>
@@ -71,8 +109,9 @@ const CodePostTemplate = ({
           />
         </>
       )}
+      {/* ======== End Links ======== */}
 
-      {/* Custom Excerpt */}
+      {/* ======= Custom Excerpt  ======== */}
       {post.shortLongPost.customExcerpt && (
         <>
           <h2>Description</h2>
@@ -84,15 +123,17 @@ const CodePostTemplate = ({
           />
         </>
       )}
+      {/* ======= End Custom Excerpt  ======== */}
 
-      {/* Tags */}
+      {/* ========= Tags ======== */}
       {post.tags.nodes.length > 0 && (
         <>
           <h2>Tags</h2>
 
-          {post.tags.nodes.map(tag => {
+          {post.tags.nodes.map((tag, index) => {
             return (
               <div
+                key={post.id + index}
                 className="tag"
                 dangerouslySetInnerHTML={{
                   __html: tag.name
@@ -102,6 +143,7 @@ const CodePostTemplate = ({
           })}
         </>
       )}
+      {/* ========= End Tags ======== */}
 
       {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
       {/* <div>{post.shortLongPost.shortVersion}</div> */}
